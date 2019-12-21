@@ -1,9 +1,21 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Сущности для проекта TestGuru:
 
-Things you may want to cover:
+* User
+  * Admin
+    * Create a test
+    * Edit a test
+  * Non-admin
+    * Take a test
+    * Access result history
+* Test
+* Question
+* Test result
+
+
+
+# # # # # 
 
 * Ruby version
 
