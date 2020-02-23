@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_26_194432) do
+ActiveRecord::Schema.define(version: 2020_02_23_141605) do
 
   create_table "answers", force: :cascade do |t|
     t.boolean "correct", default: false
@@ -19,6 +19,11 @@ ActiveRecord::Schema.define(version: 2019_12_26_194432) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "question_id"
     t.index ["question_id"], name: "index_answers_on_question_id"
+  end
+
+  create_table "authors", force: :cascade do |t|
+    t.integer "user_id"
+    t.index ["user_id"], name: "index_authors_on_user_id"
   end
 
   create_table "categories", force: :cascade do |t|
@@ -41,6 +46,8 @@ ActiveRecord::Schema.define(version: 2019_12_26_194432) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "level", default: 0
     t.integer "category_id", null: false
+    t.integer "author_id"
+    t.index ["author_id"], name: "index_tests_on_author_id"
     t.index ["category_id"], name: "index_tests_on_category_id"
   end
 
@@ -59,6 +66,8 @@ ActiveRecord::Schema.define(version: 2019_12_26_194432) do
   end
 
   add_foreign_key "answers", "questions"
+  add_foreign_key "authors", "users"
   add_foreign_key "questions", "tests"
+  add_foreign_key "tests", "authors"
   add_foreign_key "tests", "categories"
 end
