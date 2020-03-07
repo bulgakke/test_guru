@@ -4,6 +4,8 @@ class Test < ApplicationRecord
   has_many :questions
   has_and_belongs_to_many :users
 
+  validates :title, presence: true
+
   def self.of_category(category_title)
     self.joins(:category).where("category_id = ?", category_title).order(title: :desc).pluck(:title)
   end

@@ -10,11 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_23_141605) do
+ActiveRecord::Schema.define(version: 2020_03_07_195946) do
 
   create_table "answers", force: :cascade do |t|
     t.boolean "correct", default: false
-    t.text "body"
+    t.text "body", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "question_id"
@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 2020_02_23_141605) do
   end
 
   create_table "questions", force: :cascade do |t|
-    t.text "body"
+    t.text "body", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "test_id"
@@ -58,6 +58,7 @@ ActiveRecord::Schema.define(version: 2020_02_23_141605) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "username", default: "no_username"
     t.string "status", default: "user"
+    t.string "email", default: "no_email", null: false
   end
 
   add_foreign_key "answers", "questions"
