@@ -4,7 +4,7 @@ class Test < ApplicationRecord
   has_many :questions
   has_and_belongs_to_many :users
 
-  scope :of_category, -> (category_title) { self.joins(:category).where("category_id = ?", category_title).order(title: :desc).pluck(:title) }
+  scope :of_category, -> (category_title) { joins(:category).where("category_id = ?", category_title).order(title: :desc).pluck(:title) }
 
   validates :title, presence: true
   validates :level, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
