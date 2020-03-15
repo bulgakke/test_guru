@@ -5,9 +5,11 @@ class Test < ApplicationRecord
   has_and_belongs_to_many :users
 
   scope :of_category, -> (category_title) { joins(:category).where(categories: { title: category_title } ) }
-  scope :of_easy_level, -> { where(level: 0..1)}
-  scope :of_medium_level, -> { where(level: 2..4)}
-  scope :of_hard_level, -> { where(level: 5..)} # c Ruby >2.6 Infinity можно опустить
+  scope :of_easy_level, -> { where(level: 0..1 ) }
+  scope :of_medium_level, -> { where(level: 2..4 ) }
+  scope :of_hard_level, -> { where(level: 5.. ) } # c Ruby >2.6 Infinity можно опустить
+
+  scope :of_level, -> (level) { where(level: level) }
 
   validates :title, presence: true
   validates :level, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
