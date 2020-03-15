@@ -4,7 +4,7 @@ categories = Category.create([
                                { title: 'Javascript' },
                                { title: 'Ruby' },
                                { title: 'Rails' }
-                             ])
+                             ])                  
 
 users = User.create([
                       { username: 'username1', email: 'username1@mail.com' },
