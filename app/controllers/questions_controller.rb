@@ -1,7 +1,7 @@
 class QuestionsController < ApplicationController
 
   before_action :find_test, only: %i[index]
-  before_action :find_question, only: %i[show]
+  before_action :find_question, only: %i[show destroy]
 
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
 
@@ -15,6 +15,12 @@ class QuestionsController < ApplicationController
 
   def show
     render inline: "<p>Question №<%=params[:id]%> for the test '<%=@question.test.title%>': <%=@question.body%> </p>"
+  end
+
+  def destroy
+    @question.destroy
+
+    render plain: "The question has been destroyed."
   end
 
   private
