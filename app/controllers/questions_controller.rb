@@ -1,26 +1,26 @@
 class QuestionsController < ApplicationController
-
+  
   before_action :find_test, only: %i[index new create]
   before_action :find_question, only: %i[show destroy]
 
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
 
-  def index
-    @questions = @test.questions
+  def index #
+    @questions = @test.questions 
     @questions_list = @questions.map do |question| 
       question.body.concat("\n")
     end
-    render inline: "<p>Test name: <%=@test.title%></p> <p>Test questions list: <%= @questions_list.join %> </p>"
+    render inline: "<p>Test name: <%=@test.title%></p> <p>Test questions list: <%= @questions_list.join %> </p>" #
   end
 
   def show
-    render inline: "<p>Question №<%=params[:id]%> for the test '<%=@question.test.title%>': <%=@question.body%> </p>"
+    @question
   end
 
   def destroy
     @question.destroy
 
-    render plain: "The question has been destroyed."
+    render plain: "The question has been destroyed." #
   end
 
   def create
@@ -29,7 +29,7 @@ class QuestionsController < ApplicationController
     if @question.save
       redirect_to @question
     else
-      render plain: "The quesion hasn't passed the validations"
+      render plain: "The quesion hasn't passed the validations" #
     end
   end
 

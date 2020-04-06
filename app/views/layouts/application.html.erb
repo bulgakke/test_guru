@@ -10,6 +10,16 @@
   </head>
 
   <body>
+    <nav>
+      <h1>Test Guru</h1>
+    </nav> <br>
+
     <%= yield %>
+    <footer>
+    
+      Евгений Булавин, <%= current_year %> <br>
+      <%= github_link(:bulgakke, :test_guru) %> <br>
+      <%= thinknetica %> <br>
+    </footer>
   </body>
 </html>
