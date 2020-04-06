@@ -1,3 +1,7 @@
-<p>Test<%= @test.title %></p>
+<h2>Test: <%= @test.title %> </h2>
 
-
+<ol>
+  <% @test.questions.each do |question| %>
+  <li><%= question.body %></li>  
+  <% end %>
+</ol>

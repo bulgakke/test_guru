@@ -7,12 +7,6 @@ class QuestionsController < ApplicationController
 
   def index
     @test
-
-    @questions = @test.questions 
-    @questions_list = @questions.map do |question| 
-      question.body.concat("\n")
-    end
-    render inline: "<p>Test name: <%=@test.title%></p> <p>Test questions list: <%= @questions_list.join %> </p>" #
   end
 
   def show
