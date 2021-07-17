@@ -13,11 +13,11 @@ users = User.create([
                     ])
 
 tests = Test.create([
-                      { category_id: categories[0].id, title: 'HTML basics' },
-                      { category_id: categories[1].id, title: 'CSS animations', level: 1 },
-                      { category_id: categories[2].id, title: 'Async functions', level: 2 },
-                      { category_id: categories[3].id, title: 'Ruby basics' },
-                      { category_id: categories[4].id, title: 'Rails models', level: 1 }
+                      { category_id: categories[0].id, author_id: 1, title: 'HTML basics' },
+                      { category_id: categories[1].id, author_id: 1, title: 'CSS animations', level: 1 },
+                      { category_id: categories[2].id, author_id: 1, title: 'Async functions', level: 2 },
+                      { category_id: categories[3].id, author_id: 1, title: 'Ruby basics' },
+                      { category_id: categories[4].id, author_id: 1, title: 'Rails models', level: 1 }
                     ])
 
 questions = Question.create([
@@ -34,4 +34,4 @@ answers = Answer.create([
                           { question_id: questions[2].id, body: 'await', correct: true },
                           { question_id: questions[3].id, body: 'Numeric', correct: true },
                           { question_id: questions[4].id, body: 'As a row in a table', correct: true }
-                        ])
+                        ]) 
