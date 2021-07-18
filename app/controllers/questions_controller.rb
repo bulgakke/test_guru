@@ -16,7 +16,7 @@ class QuestionsController < ApplicationController
   def destroy
     @question.destroy
 
-    render plain: "The question has been destroyed." #
+    render :index
   end
 
   def create
@@ -25,12 +25,12 @@ class QuestionsController < ApplicationController
     if @question.save
       redirect_to @question
     else
-      render plain: "The quesion hasn't passed the validations" #
+      render :new
     end
   end
 
   def new
-    
+    @question = Question.new
   end
 
   private
